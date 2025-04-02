@@ -1,0 +1,8 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args:
+      - -m
+      - cp
+      - -r
+      - dags/*
+      - gs://us-central1-omni-composer-bucket/dags/
