@@ -1,7 +1,12 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 steps:
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
+  - name: 'gcr.io/cloud-builders/gsutil'
     args:
-      - '-c'
-      - |
-        gcloud builds submit --config .cloudbuild/deploy_dags_to_composer.yaml .
+      - rsync
+      - -r
+      - dags/
+      - gs://us-central1-omni-composer-xxxx/dags
+
+timeout: 300s
