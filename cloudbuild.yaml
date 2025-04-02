@@ -7,6 +7,6 @@ steps:
       - rsync
       - -r
       - dags/
-      - gs://us-central1-omni-composer-xxxx/dags
+      - gs://us-central1-omni-composer-0bbf588f-bucket/dags
 
 timeout: 300s
