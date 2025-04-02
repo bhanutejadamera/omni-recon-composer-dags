@@ -1,3 +1,7 @@
 steps:
-  - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'dags/*.py', 'gs://your-composer-bucket/dags/']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud builds submit --config .cloudbuild/deploy_dags_to_composer.yaml .
